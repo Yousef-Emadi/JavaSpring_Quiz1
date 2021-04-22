@@ -7,9 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class QuizApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(QuizApplication.class, args);
+//        SpringApplication.run(QuizApplication.class, args);
 
+        UserInterface appUI = new UserInterface();
 
+        while (true){
+            appUI.getUserChoice();
+        }
     }
 
 }

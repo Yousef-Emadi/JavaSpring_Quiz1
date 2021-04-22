@@ -6,7 +6,7 @@
 
 package com.yousef.quiz;
 
-public class FruitsAndVegetables extends FoodGroup {
+public class FruitsAndVegetables extends FoodMainGroup {
 
     @Override
     double getCaloriesConsumed(double amount) {

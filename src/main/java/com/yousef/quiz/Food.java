@@ -21,6 +21,10 @@ public class Food {
         this.calories = calories;
     }
 
+    public Food() {
+
+    }
+
     @Override
     public String toString() {
         return "Food{" +
