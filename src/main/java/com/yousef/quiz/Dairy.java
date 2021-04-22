@@ -6,11 +6,10 @@
 
 package com.yousef.quiz;
 
-public class FruitsAndVegetables extends FoodGroup {
+public class Dairy extends FoodGroup{
 
     @Override
     double getCaloriesConsumed(double amount) {
-        return 65 * amount / 100;
+        return 42 * amount / 100;
     }
-
 }

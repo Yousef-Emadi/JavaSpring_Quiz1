@@ -6,8 +6,6 @@
 
 package com.yousef.quiz;
 
-import java.util.Arrays;
-
 public class Controller {
 
     /** validator for data entered by user as the food group int number **/
@@ -24,4 +22,6 @@ public class Controller {
     public boolean amountValidator(double amount){
         return amount > 0;
     }
+
+
 }
