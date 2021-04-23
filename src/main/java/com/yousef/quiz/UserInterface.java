@@ -2,20 +2,12 @@
  * Quiz1 : Food Calories
  * Developed by: Yousef Emadi
  * Date: 21-APR-2021
- * <p>
- * Quiz1 : Food Calories
- * Developed by: Yousef Emadi
- * Date: 21-APR-2021
- */
-/**
- * Quiz1 : Food Calories
- * Developed by: Yousef Emadi
- * Date: 21-APR-2021
  */
 
 package com.yousef.quiz;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -61,7 +53,9 @@ public class UserInterface {
     }
 
 
-    /** validator for data entered by user as the food group int number **/
+    /**
+     * validator for data entered by user as the food group int number
+     **/
     public boolean groupValidator(int group) {
         int[] groups = {1, 2, 3, 4};
         for (int i : groups
@@ -71,14 +65,18 @@ public class UserInterface {
         return false;
     }
 
-    /** validator for data entered by user as the food food amount in grams double number **/
+    /**
+     * validator for data entered by user as the food food amount in grams double number
+     **/
     public boolean amountValidator(double amount) {
         return amount > 0;
     }
 
     int exitFlag; //to help function to use Exit to main menu
 
-    /** temporary list to keep food items in current user session **/
+    /**
+     * temporary list to keep food items in current user session
+     **/
     List<Food> foodBasket = new ArrayList<Food>();
 
     public List<Food> getFoodItemConsumed() {
@@ -93,6 +91,7 @@ public class UserInterface {
             System.out.print("\n   4. Grains");
             System.out.print("\n   0. << Back to main menu >>\n");
             int group = input.nextInt();
+
 
             if (group == 0) {
                 exitFlag = 0; //Exit to main menu
@@ -136,6 +135,7 @@ public class UserInterface {
                     foodBasket.add(food);
                 }
             }
+
         }
         return foodBasket;
 
@@ -193,6 +193,10 @@ public class UserInterface {
 
     public void emptyMessage() {
         System.out.println(">>>>> Food list is empty. Use \"Calorie calculator\" option. Nothing to report");
+    }
+
+    public void catchMessage() {
+        System.out.println(">>>>> Sorry! This application accepts only numbers");
     }
 
     public void exitMessage() {

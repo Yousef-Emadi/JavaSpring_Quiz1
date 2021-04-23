@@ -36,9 +36,7 @@ public class Controller {
         myUI.exitFlag = 1;
         myUI.foodBasket.clear();
 
-
-            myUI.getFoodItemConsumed();
-
+        myUI.getFoodItemConsumed();
 
         //add food basket of user session to database
         for (Food i: myUI.foodBasket

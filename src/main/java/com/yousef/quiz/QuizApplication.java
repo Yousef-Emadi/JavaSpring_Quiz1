@@ -3,6 +3,8 @@ package com.yousef.quiz;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.InputMismatchException;
+
 @SpringBootApplication
 public class QuizApplication {
 
@@ -21,7 +23,13 @@ public class QuizApplication {
 
 
         while (true){
-            controller.mainController();
+            try {
+                controller.mainController();
+            }catch (InputMismatchException i){
+                userInterface.catchMessage();
+                break;
+            }
+
         }
 
     }
