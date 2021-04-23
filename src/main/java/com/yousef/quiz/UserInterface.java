@@ -6,6 +6,7 @@
 
 package com.yousef.quiz;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -167,9 +168,11 @@ public class UserInterface {
     }
 
     public void showTotalCaloriesConsumed(double totalCalories) {
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(3);
         System.out.println(
                 "\n----------------------------------------" +
-                        "\n      Total calories consumed: " + totalCalories +
+                        "\n      Total calories consumed: " + df.format(totalCalories) +
                         "\n----------------------------------------"
         );
     }
