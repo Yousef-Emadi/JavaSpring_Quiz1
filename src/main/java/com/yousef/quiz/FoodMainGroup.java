@@ -5,23 +5,28 @@
  */
 
 package com.yousef.quiz;
+
 import java.util.ArrayList;
 import java.util.List;
 
-/** Abstract class for all types of food **/
+/**
+ * Abstract class for all types of food
+ **/
 public abstract class FoodMainGroup {
 
     //Fields
     protected List<Food> foodItemsDB = new ArrayList<>();
 
 
-
-    /** Abstract Method **/
+    /**
+     * Abstract Method
+     **/
     abstract double getCaloriesConsumed(double amount);
 
 
-
-    /** Non-Abstract Methods **/
+    /**
+     * Non-Abstract Methods
+     **/
     protected boolean addFood(Food food) {
         if (food != null)
             return foodItemsDB.add(food);
@@ -30,7 +35,7 @@ public abstract class FoodMainGroup {
     }
 
     protected Food searchByGroup(int groupId) {
-        for (Food i: foodItemsDB
+        for (Food i : foodItemsDB
         ) {
             if (i.group == groupId) return i;
         }

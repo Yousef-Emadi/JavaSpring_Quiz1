@@ -6,7 +6,9 @@
 
 package com.yousef.quiz;
 
-/** Class to create food objects **/
+/**
+ * Class to create food objects
+ **/
 public class Food {
 
     //Fields
@@ -22,7 +24,6 @@ public class Food {
     }
 
     public Food() {
-
     }
 
 }

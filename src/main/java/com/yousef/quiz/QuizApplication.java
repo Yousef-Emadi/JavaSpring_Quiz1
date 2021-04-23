@@ -1,3 +1,9 @@
+/**
+ * Quiz1 : Food Calories
+ * Developed by: Yousef Emadi
+ * Date: 21-APR-2021
+ */
+
 package com.yousef.quiz;
 
 import org.springframework.boot.SpringApplication;
@@ -9,6 +15,8 @@ import java.util.InputMismatchException;
 public class QuizApplication {
 
     public static void main(String[] args) {
+
+
 //        SpringApplication.run(QuizApplication.class, args);
 
         UserInterface userInterface = new UserInterface();
@@ -22,10 +30,10 @@ public class QuizApplication {
         Controller controller = new Controller(userInterface, foodMainGroup);
 
 
-        while (true){
+        while (true) {
             try {
                 controller.mainController();
-            }catch (InputMismatchException i){
+            } catch (InputMismatchException i) {
                 userInterface.catchMessage();
                 break;
             }

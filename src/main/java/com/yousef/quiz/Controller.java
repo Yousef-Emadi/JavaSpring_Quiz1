@@ -21,26 +21,34 @@ public class Controller {
     }
 
     //Methods
-    public void mainController(){
+    public void mainController() {
         userChoice choice = myUI.getUserChoice();
         switch (choice) {
-            case CALORIE_CALC -> {doCalculateCalories();}
-            case REP_BY_GROUP -> {doReportByGroups();}
-            case REP_ALL -> {doListDatabase();}
-            case EXIT -> {doExit();}
+            case CALORIE_CALC -> {
+                doCalculateCalories();
+            }
+            case REP_BY_GROUP -> {
+                doReportByGroups();
+            }
+            case REP_ALL -> {
+                doListDatabase();
+            }
+            case EXIT -> {
+                doExit();
+            }
         }
     }
 
 
-    public void doCalculateCalories(){
+    public void doCalculateCalories() {
         myUI.exitFlag = 1;
         myUI.foodBasket.clear();
 
         myUI.getFoodItemConsumed();
 
         //add food basket of user session to database
-        for (Food i: myUI.foodBasket
-             ) {
+        for (Food i : myUI.foodBasket
+        ) {
             foodMainGroup.foodItemsDB.add(i);
         }
         if (computeAllCaloriesConsumed(myUI.foodBasket) != 0) {
@@ -49,9 +57,9 @@ public class Controller {
         if (myUI.foodBasket.isEmpty()) myUI.emptyMessage();
     }
 
-    public double computeAllCaloriesConsumed(List<Food> list){
-        double totalCalories = 0 ;
-        for (Food i: list
+    public double computeAllCaloriesConsumed(List<Food> list) {
+        double totalCalories = 0;
+        for (Food i : list
         ) {
             totalCalories = totalCalories + i.calories;
         }
@@ -60,8 +68,8 @@ public class Controller {
 
     private void doReportByGroups() {
         int groupNumber = myUI.getGroupNumber();
-        if (groupNumber != 0){
-            for (Food i: foodMainGroup.foodItemsDB
+        if (groupNumber != 0) {
+            for (Food i : foodMainGroup.foodItemsDB
             ) {
                 if (i.group == groupNumber)
                     myUI.showFood(i);
@@ -72,18 +80,16 @@ public class Controller {
     }
 
 
-
     private void doListDatabase() {
-        for (Food i: foodMainGroup.foodItemsDB
-             ) {
+        for (Food i : foodMainGroup.foodItemsDB
+        ) {
             myUI.showFood(i);
         }
         if (foodMainGroup.foodItemsDB.isEmpty()) myUI.emptyMessage();
     }
 
 
-
-    public void doExit(){
+    public void doExit() {
         myUI.exitMessage();
         System.exit(0);
     }
