@@ -6,6 +6,8 @@
 
 package com.yousef.quiz;
 
+import java.util.List;
+
 public class Controller {
 
     //Fields
@@ -24,28 +26,68 @@ public class Controller {
         switch (choice) {
             case CALORIE_CALC -> {doCalculateCalories();}
             case REP_BY_GROUP -> {doReportByGroups();}
-            case REP_BY_CALORIES -> {doReportByCalories();}
             case REP_ALL -> {doListDatabase();}
             case EXIT -> {doExit();}
         }
     }
 
 
-    /** validator for data entered by user as the food group int number **/
-    public boolean groupValidator(int group){
-        int[] groups = {1, 2, 3, 4};
-        for (int i: groups
+    public void doCalculateCalories(){
+        myUI.exitFlag = 1;
+        myUI.foodBasket.clear();
+
+
+            myUI.getFoodItemConsumed();
+
+
+        //add food basket of user session to database
+        for (Food i: myUI.foodBasket
              ) {
-            if (i == group) return true;
+            foodMainGroup.foodItemsDB.add(i);
         }
-        return false;
+        if (computeAllCaloriesConsumed(myUI.foodBasket) != 0) {
+            myUI.showTotalCaloriesConsumed(computeAllCaloriesConsumed(myUI.foodBasket));
+        }
+        if (myUI.foodBasket.isEmpty()) myUI.emptyMessage();
     }
 
-    /** validator for data entered by user as the food food amount in grams double number **/
-    public boolean amountValidator(double amount){
-        return amount > 0;
+    public double computeAllCaloriesConsumed(List<Food> list){
+        double totalCalories = 0 ;
+        for (Food i: list
+        ) {
+            totalCalories = totalCalories + i.calories;
+        }
+        return totalCalories;
+    }
+
+    private void doReportByGroups() {
+        int groupNumber = myUI.getGroupNumber();
+        if (groupNumber != 0){
+            for (Food i: foodMainGroup.foodItemsDB
+            ) {
+                if (i.group == groupNumber)
+                    myUI.showFood(i);
+            }
+        }
+        if (myUI.groupValidator(groupNumber) && foodMainGroup.foodItemsDB.isEmpty()) myUI.emptyMessage();
+
     }
 
 
+
+    private void doListDatabase() {
+        for (Food i: foodMainGroup.foodItemsDB
+             ) {
+            myUI.showFood(i);
+        }
+        if (foodMainGroup.foodItemsDB.isEmpty()) myUI.emptyMessage();
+    }
+
+
+
+    public void doExit(){
+        myUI.exitMessage();
+        System.exit(0);
+    }
 
 }

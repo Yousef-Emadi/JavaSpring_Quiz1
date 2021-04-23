@@ -9,11 +9,21 @@ public class QuizApplication {
     public static void main(String[] args) {
 //        SpringApplication.run(QuizApplication.class, args);
 
-        UserInterface appUI = new UserInterface();
+        UserInterface userInterface = new UserInterface();
+        FoodMainGroup foodMainGroup = new FoodMainGroup() {
+            @Override
+            double getCaloriesConsumed(double amount) {
+                return 0;
+            }
+        };
+
+        Controller controller = new Controller(userInterface, foodMainGroup);
+
 
         while (true){
-            appUI.getUserChoice();
+            controller.mainController();
         }
+
     }
 
 }

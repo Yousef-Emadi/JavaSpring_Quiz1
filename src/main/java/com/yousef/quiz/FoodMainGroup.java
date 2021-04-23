@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class FoodMainGroup {
 
     //Fields
-    protected List<Food> foodItems = new ArrayList<>();
+    protected List<Food> foodItemsDB = new ArrayList<>();
 
 
 
@@ -24,23 +24,15 @@ public abstract class FoodMainGroup {
     /** Non-Abstract Methods **/
     protected boolean addFood(Food food) {
         if (food != null)
-            return foodItems.add(food);
+            return foodItemsDB.add(food);
         else
             return false;
     }
 
     protected Food searchByGroup(int groupId) {
-        for (Food i: foodItems
+        for (Food i: foodItemsDB
         ) {
             if (i.group == groupId) return i;
-        }
-        return null;
-    }
-
-    protected Food searchByCalories(double calories) {
-        for (Food i: foodItems
-        ) {
-            if (i.calories == calories) return i;
         }
         return null;
     }
